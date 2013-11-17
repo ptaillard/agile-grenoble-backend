@@ -223,7 +223,7 @@ function updatePersonasLegendText($legend) {
         $legend.text('Personas (Cliquez pour afficher la liste des personas)');
     }
     else {
-        $legend.text('Personas (Cliquez sur l\'image pour sélectionner un personas)');
+        $legend.text('Personas (Cliquez sur l\'image pour sélectionner un persona)');
     }
 }
 
