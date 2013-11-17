@@ -155,7 +155,8 @@ function getImageSize() {
 function createClickEventOnPersonas() {
 	$('.' + classPersonasImageClickable).click(function() {
         var $personas = $(this);
-        if(areAllPersonasSelected($personas)) {
+        if(areAllPersonasSelected($personas) ||
+           isOnlyOnePersonasSelected($personas)) {
             keepOnlyCurrentPersonasAsSelected($personas);
         }
         else {
@@ -173,6 +174,12 @@ function createClickEventOnLegend() {
 
 function areAllPersonasSelected($personas) {
     return ($('#' + personasToolbarId).find('.' + classPersonasUncheckedTextColor).length == 0)
+}
+
+function isOnlyOnePersonasSelected($personas) {
+    var isCurrentPersonasSelected = !$personas.hasClass(classPersonasUncheckedTextColor);
+    var onlyOnePersonasSelected = $('.' + classPersonasImageClickable).length-1;
+    return ($('#' + personasToolbarId).find('.' + classPersonasUncheckedTextColor).length == onlyOnePersonasSelected && isCurrentPersonasSelected)
 }
 
 function keepOnlyCurrentPersonasAsSelected($currentPersonas) {
